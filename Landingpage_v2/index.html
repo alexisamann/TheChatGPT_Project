@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulse Nova – AI Newsletter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="starfield" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <header class="hero" data-parallax>
+      <nav class="nav">
+        <div class="logo">Pulse<span>Nova</span></div>
+        <a href="#cta" class="ghost-btn">Jetzt abonnieren</a>
+      </nav>
+      <div class="hero-content">
+        <p class="eyebrow">AI · Quantum · Future Ops</p>
+        <h1>Der Newsletter aus der Zukunft – heute in deinem Postfach.</h1>
+        <p class="lead">
+          Kuratierte Insights zu künstlicher Intelligenz, emergenter Technologie
+          und Strategien für Visionär:innen, die ihrer Zeit voraus sind.
+        </p>
+        <form class="signup" id="heroForm">
+          <label for="email" class="sr-only">E-Mail-Adresse</label>
+          <input id="email" type="email" placeholder="E-Mail eingeben" required />
+          <button type="submit">Newsletter abonnieren</button>
+        </form>
+        <p class="microcopy">Wöchentlich. Prägnant. Ohne Spam.</p>
+      </div>
+      <div class="hero-orbs" aria-hidden="true">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="features" id="features">
+        <div class="section-heading">
+          <p class="eyebrow">Warum PulseNova?</p>
+          <h2>Ein Signal im Rauschen.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" role="img" aria-label="Neuron">
+                <path
+                  d="M18 18l28 28m0-28L18 46"
+                  stroke="currentColor"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+                <circle cx="18" cy="18" r="6" fill="currentColor" />
+                <circle cx="46" cy="46" r="6" fill="currentColor" />
+              </svg>
+            </div>
+            <h3>Deep Intelligence</h3>
+            <p>Analysen zu State-of-the-Art-Modellen übersetzt für Entscheider:innen.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" role="img" aria-label="Radar">
+                <circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="3" />
+                <circle cx="32" cy="32" r="12" fill="none" stroke="currentColor" stroke-width="3" />
+                <path d="M32 32l18-18" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                <circle cx="50" cy="14" r="4" fill="currentColor" />
+              </svg>
+            </div>
+            <h3>Trend Radar</h3>
+            <p>Erkenne neue Signale in Forschung, Startups und Policy bevor sie Mainstream sind.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" role="img" aria-label="Shield">
+                <path
+                  d="M32 6l22 10v14c0 14.5-9.2 27.7-22 32-12.8-4.3-22-17.5-22-32V16z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linejoin="round"
+                />
+                <path d="M22 34l6 6 14-18" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Strategic Clarity</h3>
+            <p>Playbooks, Frameworks &amp; Governance-Impulse für resilientere Roadmaps.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="benefits" id="benefits">
+        <div class="section-heading">
+          <p class="eyebrow">Kompakt &amp; relevant</p>
+          <h2>Was dich erwartet</h2>
+        </div>
+        <ul class="benefit-list">
+          <li>
+            <span class="pulse" aria-hidden="true"></span>
+            Drei prägnante Stories pro Woche, inklusive Quick-Wins für dein Team.
+          </li>
+          <li>
+            <span class="pulse" aria-hidden="true"></span>
+            Insider-Interviews aus AI-Labs und Venture-Studios weltweit.
+          </li>
+          <li>
+            <span class="pulse" aria-hidden="true"></span>
+            Private Events &amp; Briefings zuerst für Abonnent:innen.
+          </li>
+        </ul>
+      </section>
+
+      <section class="cta" id="cta">
+        <div class="cta-card">
+          <h2>Bleib dem Fortschritt voraus.</h2>
+          <p>Trage dich ein und erhalte die nächste Ausgabe direkt in dein Postfach.</p>
+          <form class="signup" id="ctaForm">
+            <label for="ctaEmail" class="sr-only">E-Mail-Adresse</label>
+            <input id="ctaEmail" type="email" placeholder="E-Mail eingeben" required />
+            <button type="submit">Newsletter abonnieren</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> PulseNova — AI Futures Intelligence</p>
+      <a href="#features">Mehr erfahren</a>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

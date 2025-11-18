@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productivity Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="dashboard-card">
+      <header class="hero">
+        <p class="eyebrow">Daily focus</p>
+        <h1>Productivity Dashboard</h1>
+        <p class="subtitle">
+          Set your intention for today, watch your progress grow, and stay on track
+          with a single glance.
+        </p>
+      </header>
+
+      <section class="intent">
+        <label for="goalInput">Tagesziel</label>
+        <input
+          id="goalInput"
+          type="text"
+          placeholder="z. B. 30 Seiten lernen"
+          autocomplete="off"
+        />
+      </section>
+
+      <section class="progress-panel">
+        <div class="progress-indicator" aria-live="polite">
+          <svg viewBox="0 0 220 220" role="presentation">
+            <circle class="progress-track" cx="110" cy="110" r="95"></circle>
+            <circle class="progress-bar" cx="110" cy="110" r="95"></circle>
+          </svg>
+          <div class="progress-value">
+            <span id="progressPercent">0%</span>
+            <small id="goalLabel">Kein Ziel</small>
+          </div>
+        </div>
+        <div class="controls" aria-label="Fortschritt steuern">
+          <button id="decrement" type="button" aria-label="Fortschritt verringern">
+            &minus;
+          </button>
+          <button id="increment" type="button" aria-label="Fortschritt erhöhen">
+            &plus;
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
