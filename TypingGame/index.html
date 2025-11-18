@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fallschirm Typing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sky-overlay"></div>
+    <header class="site-header">
+      <div class="shell">
+        <p class="eyebrow">Mini Game</p>
+        <h1>Fallschirm Typing</h1>
+        <p class="intro">
+          Fang die Worte, bevor sie am Boden zerschellen. Tippe sie korrekt ein,
+          sammle Punkte und halte deine Nerven im Endspurt der letzten Sekunden.
+        </p>
+        <button id="startButton" class="primary-btn">Neue Runde starten</button>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="hud">
+        <div class="stat-card">
+          <p>Zeit</p>
+          <strong id="timeDisplay">60s</strong>
+        </div>
+        <div class="stat-card">
+          <p>Punkte</p>
+          <strong id="scoreDisplay">0</strong>
+        </div>
+        <div class="stat-card">
+          <p>WPM</p>
+          <strong id="wpmDisplay">0</strong>
+        </div>
+        <div class="stat-card">
+          <p>Trefferquote</p>
+          <strong id="accuracyDisplay">100%</strong>
+        </div>
+        <div class="stat-card lives">
+          <p>Schirme</p>
+          <div id="livesDisplay" class="lives-wrapper"></div>
+        </div>
+      </section>
+
+      <section class="game-area">
+        <div id="cloudline" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div id="playfield" aria-live="off"></div>
+        <div class="ground" aria-hidden="true"></div>
+      </section>
+
+      <section class="control-panel">
+        <form id="guessForm" autocomplete="off">
+          <label for="guessInput" class="sr-only">Wort eingeben</label>
+          <input
+            id="guessInput"
+            type="text"
+            placeholder="Hier tippen und mit Enter bestätigen"
+            spellcheck="false"
+          />
+          <button type="submit" class="primary-btn ghost">Wort senden</button>
+        </form>
+        <div id="statusMessage" role="status" aria-live="polite"></div>
+      </section>
+
+      <section class="how-to">
+        <h2>So funktioniert's</h2>
+        <ul>
+          <li>Tippe jedes Wort korrekt und bestätige mit Enter.</li>
+          <li>
+            Wenn ein Wort den Boden berührt, verlierst du einen Fallschirm.
+          </li>
+          <li>
+            Serien von Treffern ohne Fehler geben Bonuspunkte – bleib im Flow!
+          </li>
+          <li>Die Runde dauert 60 Sekunden. Wie viele Punkte schaffst du?</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <small>Erstellt für schnelle Finger &amp; ruhige Nerven.</small>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>

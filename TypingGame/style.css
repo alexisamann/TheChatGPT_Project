@@ -1,0 +1,339 @@
+:root {
+  font-family: "Space Grotesk", "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #f7f9ff;
+  background-color: #050910;
+  --sky: radial-gradient(circle at 20% -10%, #2741ff, transparent 55%),
+    radial-gradient(circle at 80% -15%, #ff5c9d, transparent 45%),
+    linear-gradient(180deg, #050910 0%, #080c16 65%, #080c16 100%);
+  --accent: #8cf8ff;
+  --accent-strong: #3de0d4;
+  --muted: #8a97c7;
+  --surface: rgba(12, 19, 33, 0.8);
+  --surface-strong: rgba(17, 26, 44, 0.9);
+  --danger: #ff6b7d;
+  --success: #55f3a3;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-image: var(--sky);
+  color: #f7f9ff;
+  line-height: 1.5;
+}
+
+.sky-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent),
+    radial-gradient(circle at 70% 10%, rgba(255, 255, 255, 0.05), transparent),
+    linear-gradient(180deg, transparent 60%, rgba(8, 12, 22, 0.6));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.site-header {
+  padding: 5rem 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.shell {
+  width: min(1100px, 90vw);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  margin: 0 0 1rem;
+}
+
+.intro {
+  max-width: 620px;
+  color: #d6def9;
+  margin-bottom: 1.5rem;
+}
+
+.primary-btn {
+  border: none;
+  padding: 0.9rem 1.8rem;
+  background: linear-gradient(120deg, #3a71ff, #6c5cff);
+  color: white;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(58, 113, 255, 0.3);
+}
+
+.primary-btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--surface);
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.stat-card p {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 1.75rem;
+  margin-top: 0.5rem;
+}
+
+.lives-wrapper {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.life-indicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.life-indicator.active {
+  background: var(--accent-strong);
+  box-shadow: 0 0 12px rgba(61, 224, 212, 0.7);
+}
+
+.game-area {
+  position: relative;
+  background: var(--surface-strong);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  height: clamp(420px, 60vh, 560px);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+#cloudline {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  opacity: 0.5;
+}
+
+#cloudline span {
+  width: 160px;
+  height: 60px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 999px;
+  filter: blur(6px);
+}
+
+#playfield {
+  position: relative;
+  height: 100%;
+  min-height: 400px;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(20, 30, 48, 0.4), rgba(4, 5, 8, 0.8));
+}
+
+.drop-word {
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -100px);
+  text-align: center;
+  pointer-events: none;
+  transition: filter 0.2s ease;
+}
+
+.parachute {
+  width: 80px;
+  height: 40px;
+  background: linear-gradient(120deg, #ff9f5c, #ffd05c);
+  border-radius: 80px 80px 10px 10px;
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.parachute::before,
+.parachute::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.6);
+  top: 36px;
+}
+
+.parachute::before {
+  left: 20px;
+}
+
+.parachute::after {
+  right: 20px;
+}
+
+.word-body {
+  margin-top: 0.25rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.85rem;
+  background: rgba(7, 11, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  min-width: 110px;
+}
+
+.drop-word.correct {
+  filter: drop-shadow(0 0 10px rgba(85, 243, 163, 0.8));
+}
+
+.drop-word.missed {
+  filter: drop-shadow(0 0 15px rgba(255, 107, 125, 0.8));
+}
+
+.control-panel {
+  background: var(--surface);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 2rem;
+}
+
+#guessForm {
+  display: flex;
+  gap: 1rem;
+}
+
+#guessInput {
+  flex: 1;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  font-size: 1.05rem;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+#guessInput:focus {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#statusMessage {
+  margin-top: 1rem;
+  min-height: 1.25rem;
+  color: var(--muted);
+}
+
+.how-to {
+  background: rgba(8, 12, 22, 0.8);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 2rem;
+}
+
+.how-to h2 {
+  margin-top: 0;
+}
+
+.how-to ul {
+  padding-left: 1.2rem;
+  color: #d6def9;
+}
+
+.site-footer {
+  padding-bottom: 4rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 720px) {
+  .primary-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  #guessForm {
+    flex-direction: column;
+  }
+
+  .parachute {
+    width: 60px;
+    height: 30px;
+  }
+
+  .word-body {
+    min-width: 90px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
