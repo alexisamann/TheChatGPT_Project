@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap");
+
+:root {
+  color-scheme: dark;
+  --bg: #05050c;
+  --text: #f8fbff;
+  --accent: #00e0ff;
+  --accent-2: #ff4f5e;
+  --muted: rgba(255, 255, 255, 0.6);
+  --card: rgba(10, 12, 24, 0.8);
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top, #11183c 0%, var(--bg) 55%, #020306 100%);
+  color: var(--text);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  width: min(960px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+header,
+footer {
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: clamp(2.75rem, 6vw, 3.5rem);
+  margin: 0.25rem 0 0.5rem;
+}
+
+.lede {
+  color: var(--muted);
+  margin: 0 auto;
+  max-width: 40ch;
+}
+
+main {
+  padding: 2rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 100vw;
+  background: linear-gradient(120deg, rgba(0, 224, 255, 0.08), rgba(255, 79, 94, 0.08));
+  font-weight: 600;
+}
+
+.hud span {
+  color: var(--accent);
+}
+
+.game-stage {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 224, 255, 0.3);
+  background: #03040b;
+}
+
+.overlay {
+  position: absolute;
+  inset: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 7, 15, 0.85);
+  border-radius: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay-content {
+  text-align: center;
+  padding: 2rem 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  background: rgba(12, 18, 32, 0.9);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.55);
+}
+
+.overlay h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.final-score {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+button {
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 2.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(120deg, var(--accent), #4d9eff);
+  color: #010203;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 224, 255, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.instructions {
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  background: rgba(10, 14, 26, 0.9);
+}
+
+.instructions h2 {
+  margin-top: 0;
+}
+
+.instructions ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  .hud {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  canvas {
+    height: 320px;
+  }
+}

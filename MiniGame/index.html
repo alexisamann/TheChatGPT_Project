@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neon Runner MiniGame</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <p class="eyebrow">HTML5 Canvas Minispiel</p>
+        <h1>Neon Runner</h1>
+        <p class="lede">
+          Gleite durch das Raster, sammle Energie-Orbs und weiche Hindernissen aus.
+        </p>
+      </div>
+    </header>
+
+    <main class="wrapper" aria-live="polite">
+      <section class="hud" aria-label="Spielstand">
+        <p>Punkte: <span id="scoreValue">0</span></p>
+        <p>Leben: <span id="livesValue">3</span></p>
+      </section>
+
+      <section class="game-stage" aria-label="Spielfeld">
+        <canvas
+          id="gameCanvas"
+          width="640"
+          height="360"
+          role="img"
+          aria-label="Spielbereich der Neon Runner Welt"
+        ></canvas>
+        <div id="gameOverlay" class="overlay" aria-hidden="true">
+          <div class="overlay-content">
+            <h2>Game Over</h2>
+            <p class="final-score">
+              Endstand: <span id="finalScore">0</span>
+            </p>
+            <button id="restartButton" type="button">Noch einmal!</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="instructions" aria-label="Anleitung">
+        <h2>Steuerung</h2>
+        <ul>
+          <li>Pfeiltasten oder WASD bewegen den Runner nach links, rechts, hoch und runter.</li>
+          <li>
+            Sammle leuchtende Orbs, um Punkte zu erzielen, und bleib von den roten
+            Barrieren fern.
+          </li>
+          <li>Wenn alle Leben verloren sind, erscheint der Game-Over-Bildschirm.</li>
+          <li>Klicke auf „Noch einmal!“ oder drücke Enter, um neu zu starten.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <p>Erstellt mit HTML5 Canvas, requestAnimationFrame und purem JavaScript.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
